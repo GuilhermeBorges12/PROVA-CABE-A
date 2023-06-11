@@ -1,0 +1,320 @@
+function exe1(){
+    let cont = 1
+        while (cont <= 5) {
+            let A = Number(prompt('Informe valor de A'))
+            let B = Number(prompt('Informe valor de B'))
+            let C = Number(prompt('Informe valor de C'))
+            let D = Number(prompt('Informe valor de D'))
+            let cont2 = 1
+            while (cont2 <= 3){
+                if (A>B ){
+                    let AUX; AUX = A; A = B; B = AUX;
+                }
+                if (B>C){
+                    let AUX; AUX = B; B = C; C = AUX;
+                }
+                if (C>D){
+                    let AUX; AUX = C; C = D; D = AUX;
+                }
+                cont2++ 
+            }
+            alert(`Ordenação crescente ${A} ${B} ${C} ${D}`)
+            alert(`Ordenação decrescente ${D} ${C} ${B} ${A}`)
+            cont++
+        }
+}
+
+function exe2(){
+    let ingresso = 5.0
+    const despesa = 200
+    let qtde = 120
+    let lucro
+    while (ingresso >= 1.0){
+        lucro = (ingresso * qtde) - despesa
+        document.getElementById("corpoTabela").innerHTML = document.getElementById("corpoTabela").innerHTML + `<tr> <td> ${ingresso} </td> <td> ${qtde} </td> <td> ${despesa} </td> <td> ${lucro} </td> </tr>`
+        qtde += 26
+        ingresso -= 0.50
+    }
+}
+
+function exe3(){
+    let idade 
+    let f1=0 ; let f2=0 ; let f3=0 ; let f4=0; let f5=0
+    for(let cont=0; cont<=8; cont++){
+       idade=prompt('Insira sua idade')
+       if(idade<=15){
+        f1++
+       }
+       else if((idade>=16) && (idade<=30)){
+        f2++
+       }
+
+       else if((idade>=31) && (idade<=45)){
+        f3++
+       }
+       else if((idade>=46)&&(idade<=60)){
+        f4++
+       }
+
+       else if(idade>60){
+        f5++
+       }
+
+       else{
+        alert("Idade inválida")
+       }
+    }
+    let pf1= (f1/8)*100
+    let pf5= (f5/8)*100
+    alert(`A quantidade de pessoa em sua faixa etária respectiva é: F1:${f1}; F2:${f2}; F3:${f3}; F4:${f4}; F5:${f5}`)
+    alert(`A quantidade de pessoas na primeira faixa etária em relação ao total de pessoas é : ${pf1}%`)
+    alert(`A quantidade de pessoas na quinta faixa etária em relação ao total de pessoas é : ${pf5}%`)
+} 
+
+function exe4(){
+   let num=Number(prompt(`Insira o número desejado`))
+   let conta
+   for (let cont=0; cont<=10; cont++){
+     conta = conta + "\n" + `${num} x ${cont} = ${num*cont}`
+   }
+   alert(`${conta}`)
+}
+
+function exe5(){
+   for(let cont=0; cont<11; cont++)
+   {
+     document.write("<p> Tabuada do " + cont+"</p>")
+     for(let cont2= 0; cont2<11; cont2++)
+     {
+        document.write(`${cont} x ${cont2} = ${cont* cont2}  <br>`)
+     }
+   }
+}
+
+function exe6(){
+    let codigo
+    let valor; let totalVista = 0;
+    let conta = 1; let totalPrazo = 0;
+    while (conta <= 5){
+        codigo = prompt('Informe P ou V').toUpperCase()
+        valor = Number(prompt('Informe valor'))
+        if (codigo == 'P'){
+            totalPrazo += valor
+        }
+        else if (codigo == 'V'){
+            totalVista += valor
+        }
+        else {
+            alert('Código inválido, valor não será considerado')
+            
+            continue 
+        }
+        conta++
+    }
+    let total = totalVista + totalPrazo
+    let valorParcela = totalPrazo / 3
+    document.getElementById("result6").innerHTML = `Total à vista ${totalVista} Total à prazo ${totalPrazo} Total ${total} Primeira parcela ${valorParcela.toFixed(2)}`
+}
+
+function exe7(){
+    
+    let idade, altura, peso
+    let item1 = 0, item2 = 0, qtdeItem2 = 0, item3 = 0
+    for (let conta = 1; conta<= 5;conta++){
+        idade = Number(prompt(`Informe a idade ${conta}`))
+        altura = Number(prompt(`Informe a altura ${conta}`))
+        peso = Number(prompt(`Informe o peso ${conta}`))
+        
+        if (idade > 50){
+            item1++ 
+        }        
+       
+        if ((idade >= 10) && (idade <= 20)){
+            item2 += altura 
+            qtdeItem2++ 
+        }
+        if (peso < 40){
+            item3++
+        }
+    }
+    
+    document.getElementById("item1").innerHTML = "Qtde pessoas idade > 50 =" + item1
+    if (qtdeItem2 != 0){
+        document.getElementById("item2").innerHTML = "Média alturas com idade entre 10 e 20 " + (item2/qtdeItem2).toFixed(2)
+    }
+    document.getElementById("item3").innerHTML = " % com peso < 40 = " + item3/5*100 
+}
+function exe8(){
+
+    let idade, peso, altura, corOlhos, corCabelo;
+
+    let A = 0;
+    let B = 0;
+    let C = 0;
+    let D = 0;
+    let E = 0;
+
+        for(let i = 0; i < 6; i++) {
+    idade = Number(prompt(`Digite a idade  ${i + 1}`));
+    peso = Number(prompt(`Digite o peso  ${i + 1}`));
+    altura = Number(prompt(`Digite a altura  ${i + 1}`));
+    corOlhos = prompt(`Digite a cor dos olhos  ${i + 1} (A - Azul, P - Preto, V - Verde, C - Castanho)`);
+    corCabelo = prompt(`Digite a cor do cabelo ${i + 1} (P - Preto, C - Castanho, L - Louro, R - Ruivo)`);
+
+            if(idade > 50 && peso < 60) {
+                A++;
+            }
+
+            if(altura < 1.50) {
+                B += idade;
+                C++;
+            }
+
+            if(corOlhos === 'A') {
+                D++;
+            }
+
+            if(corCabelo === 'R' && corOlhos !== 'A') {
+                E++;
+            }
+        }
+
+ let mediaIdadeAlturaMenos150 = B / (C === 0 ? 1 : C);
+ let porcentagemOlhosAzuis = (D / 6) * 100;
+
+ alert(`Quantidade de pessoas com mais de 50 anos e peso menos de 60 kg: ${A}`);
+ alert(`Média de idade de pessoas com altura menos de 1.50 m: ${mediaIdadeAlturaMenos150.toFixed(2)}`);
+ alert(`Porcentagem de pessoas com olhos azuis: ${porcentagemOlhosAzuis.toFixed(2)}%`);
+ alert(`Quantidade de pessoas ruivas que não possuem olhos azuis: ${E}`);
+}
+
+function exe9(){
+
+}
+
+function exe10(){
+    let cont=0
+    let acm=0
+    let cont2=0
+    let media
+    while(cont<10){
+        let num=Number(prompt('Insira seu número'))
+        cont++
+        if(num%2==0){
+            acm=acm+num
+            cont2++
+        }
+        else{
+         
+        }
+        
+    }
+     media=acm/cont2
+     alert(`Sua média dos números par é : ${media}`)
+   
+}
+
+function exe20(){
+    let opcao
+    do { 
+        opcao = Number(prompt("Menu de opções \n 1. Média aritmética \n 2. Média ponderada \n 3. Sair"))
+        switch(opcao){
+            case 1: let nota1 = Number(prompt("Nota 1"))
+                    let nota2 = Number(prompt("Nota 2"))
+                    alert("Média aritmética " + (nota1 + nota2) / 2)
+                    break
+            case 2: let nota1p = Number(prompt("Nota 1"))
+                    let peso1 = Number(prompt("Peso da Nota 1"))
+                    let nota2p = Number(prompt("Nota 2"))
+                    let peso2 = Number(prompt("Peso da Nota 2"))
+                    let nota3p = Number(prompt("Nota 3"))
+                    let peso3 = Number(prompt("Peso da Nota 3"))
+                    alert("Média ponderada " + ((nota1p*peso1) + (nota2p*peso2) + (nota3p * peso3)) / (peso1 + peso2 + peso3))
+                    break
+            case 3: alert("Opção 3 selecionada, programa será encerrado")
+                    break
+            default: alert("Opção inválida")
+        }
+    }
+    while (opcao != 3) 
+}
+
+function exe21(){
+    let cand1=0, cand2=0, cand3=0,cand4=0, nulos= 0, branco= 0, total = 0
+    let opcao
+      do{
+         opcao= Number(prompt(`Escolha a opção: \n 1.Cand1 \n 2.Cand2 \n 3.Cand3 \n 4.Cand4 \n 5.Nulo \n 6.Branco \n 0.Sair`))
+         switch(opcao){
+            case 1: 
+            cand1++
+            break
+            case 2:
+            cand2++ 
+            break
+            case 3: 
+            cand3++
+            break
+            case 4:
+            cand4++
+            break
+            case 5:
+            nulos++
+            break
+            case 6:
+            branco++
+            break
+   
+   
+            default: alert("Opção inválida")
+            
+         }
+           
+      }
+      while(opcao !=0){
+         total= cand1+ cand2 + cand3 + cand4 + nulos + branco
+         alert(`% de votos nulos ${nulos/total*100}`)
+         alert(`% de votos brancos ${branco/total*100}`)
+    }
+}
+
+function Exe23(){
+    let opcao 
+    let salarionovo
+    let aumento 
+    let ferias
+    do{
+       opcao= Number(prompt(`\n 1.Novo Salario \n 2.Férias \n 3.Décimo Terceiro \n 4.Sair`))
+       switch(opcao){
+          case 1: 
+          salarionovo=Number(prompt(`Digite seu salario`))
+          if((salarionovo>=0 )&&(salarionovo<=210)){
+           aumento= salarionovo+(salario*10)/100
+          }
+  
+          else if((salario>=210) && (salario<=600)){
+           aumento= salarionovo+(salarionovo*10)/100
+          }
+  
+          else{
+           alert ('Salario negativo')
+          }
+          alert(`Seu novo salario é: ${aumento}`)
+          break
+  
+         case 2:
+           salarionovo= Number(prompt(`Informe salario`))
+           ferias = salarionovo +(salarionovo)/3
+           alert(`Valor das férias ${ferias}`)
+         break
+  
+         case 3:
+  
+         break
+        
+         default:alert("Opção Inválida")
+        }
+     }
+     while(opcao !=0){
+  
+     }
+}
