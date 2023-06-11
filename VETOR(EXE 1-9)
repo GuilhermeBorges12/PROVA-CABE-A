@@ -1,0 +1,237 @@
+function exe1(){
+
+    let vet= []
+    let pares=[]
+    let impares=[]
+    let cont=0
+    let cont2=0
+    for(let i=0; i<5; i++){
+        vet.push(prompt('Insira os seus valores'))
+    }
+
+    for(let i=0;i<5; i++){
+        if(vet[i]%2==0)
+        {
+            pares.push(vet[i])
+            cont++
+        }
+
+        else{
+            impares.push(vet[i])
+            cont2++
+        }
+    }
+    alert(`A quantidade de pares: ${pares}`)
+    alert(`A quantidade de ímpares: ${impares}`)
+    alert(`O total de num pares é: ${cont}`)
+    alert(`O total de num impar é: ${cont2}`)
+}
+
+function exe2(){
+    let mult2=[] ; let mult23=[] ; let mult3=[] ; let vet=[]
+
+    for(let i=0; i<7; i++){
+        vet.push(Number(prompt('Informe o seu número')))
+    }
+
+    for(let i=0; i<7; i++)
+    {
+        if((vet[i]%2==0) && (vet[i]%3==0))
+        {
+            mult23.push(vet[i])
+        }
+
+        else if(vet[i]%2==0){
+            mult2.push(vet[i])
+        }
+
+        else if (vet[i]%3==0){
+            mult3.push(vet[i])
+        }
+    }
+
+    alert(`Seus números multiplos de 2 são: ${mult2}`)
+    alert(`Seus números multiplos de 3 são: ${mult3}`)
+    alert(`Seus números multiplos de 3 e 2 são: ${mult23}`)
+}
+
+function exe3(){
+    let codigo= []
+    let estoque= []
+
+    for( let i=0; i<10; i++)
+    {
+        codigo[i]=Number(prompt(`Insira o código do produto ${i+1}`))
+        estoque[i]=Number(prompt(`Digite a quantidade do produto em estoque ${i+1}`))
+    }
+    let cliente=Number(prompt(`Digite o código do cliente: `))
+    while(cliente != 0){
+        codigo=Number(prompt(`Insira o código do produto para compra`))
+        let qtd=Number(prompt(`Insira a quantidade que sera comprada`))
+
+        let achou= false
+        for(i=0; i<10; i++){
+            if(codigo==codigo[i]){
+                achou= true
+                if(estoque[i]>=qtd){
+                    estoque[i]= estoque[i]-qtd
+                    alert('Compra realizada com sucesso')
+                }
+
+                else{
+                    alert('Compra não realizada, sem produto em estoque ')
+                }
+            }
+        }
+
+        if(!achou){
+            alert('Produto não encontrado')
+        }
+        cliente=Number(prompt(`Insira o código do cliente. Ou 0 para acabar`))
+    }
+    alert(`Quantidade em estoque atual: ${estoque}`)
+}
+
+function exe4(){
+    let vet=[]
+    let posicao=[]
+
+    for(let i=0; i<10; i++)
+    {
+        vet[i]=Number(prompt(`Insira os valores no vetor`))
+    }
+
+    for(i=0; i<10; i++){
+        if(vet[i]==30){
+            posicao.push(i)
+        }
+    }
+    alert(`Posições onde o num 30 aparece: ${posicao} `)
+
+}
+
+function exe5(){
+    let linguagem= []
+    let logica= []
+    let comum= []
+
+    for(let i=0; i<10; i++)
+    {
+        linguagem[i]=Number(prompt(`Informe o ${i+1} código do aluno de linguagem`))
+    }
+
+    for(i=0; i<10; i++){
+        logica[i]= Number(prompt(`Informe o ${i+1} código do aluno de lógica`))
+    }
+
+    for(i=0; i<10; i++){
+        if(linguagem.includes(logica[i]))
+        {
+            comum.push(logica[i])
+        }
+    }
+    alert(`O cógido dos alunos em comum são: ${comum}`)
+}
+
+function exe6(){
+    let venda=[]
+    let percentual=[]
+    let nomes= []
+    let comissao= []
+    let total=0
+    for(let i=0; i<5; i++)
+    {
+        venda[i]=Number(prompt(`Insira o total de vendas`))
+        percentual[i]=Number(prompt(`Percentual de comissão`))
+        nomes[i]=(prompt(`Insira o nome do vendedor`))
+
+        comissao[i]= (venda[i]/percentual[i])*100
+    }  
+    total= total+venda[i]
+    let maior= comissao[0]; let menor = comissao[0]
+
+    for(i=0 ; i<5; i++){
+        if(comissao[i]>maior)
+        {
+            maior=comissao[i]
+        }
+
+        if(comissao[i]<menor){
+            menor=comissao[i]
+        }
+    }
+
+    alert(`Valor total vendido: ${total}`)
+    alert(`O maior valor é : ${maior}, e quem receberá é o vendedor: ${nomes[comissao.indexOf(maior)]}`)
+    alert(`O menor valor é : ${menor}, e quem receberá é o vendedor: ${nomes[comissao.indexOf(menor)]}`)
+    
+}
+
+function exe7(){
+    let vet= []
+
+    let neg= []
+
+    let positivo= []
+    
+    let soma= 0
+    for(let i=0; i<5; i++){
+        vet[i]=Number(prompt(`Insira o número no vetor`))
+    }
+
+    for(i=0; i<5; i++){
+        if(vet[i]>0)
+        {
+            positivo.push(vet[i])
+            soma+=positivo[i]
+        }
+    }
+
+    for(i=0; i<5; i++)
+    {
+        if(vet[i]<0)
+        {
+            neg.push(vet[i])
+        }
+    }
+
+    alert(`Os números negativos desse vetor é: ${neg}`)
+    alert(`A soma dos positivos é: ${soma}`)
+}
+
+function exe8(){
+    let nome = []
+    let mediafinal= []
+    let recuperacaoNOME= []
+   
+    for(let i=0; i<2; i++)
+    {
+        nome[i]=prompt(`Insira seu nome`)
+        mediafinal[i]= Number(prompt((`Insira sua média final`)))
+    }
+
+    for(i=0; i<2; i++)
+    {
+        let maiormedia= mediafinal[0]
+        let melhoraluno= nome[0]
+
+        if(mediafinal[i]>maiormedia){
+            maiormedia=mediafinal[i]
+            melhoraluno= alunos[i]
+        }
+    }
+
+    for(i=0; i<2; i++){
+        if(mediafinal[i]<7){
+            recuperacaoNOME.push(mediafinal[i])
+            conta.push(mediafinal[i])
+
+        }
+    }
+
+    alert(`O aluno com maior média é: ${mediafinal}`)
+}
+
+function exe9(){
+
+}
